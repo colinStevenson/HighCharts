@@ -1,0 +1,175 @@
+﻿/*
+This file contains styles that are frequently used within our Research Sites.
+Since the file is local to your project, plan to adjust it to meet your project's needs.
+
+Note to Boostrap Users:
+If you use Bootstrap on your site, this file should not conflict, but does contain a few duplicate rules.
+*/
+
+/* TYPOGRAPHY */
+
+/*
+Headings:
+The <h1> - <h6> elements should be used in a manner that divides a single page into logical content groupings resembling a table of contents.
+Heading elements should be used in the appropriate order. E.g. <h3> should only be used when it notes another sub-level of heading beneath an existing <h2>.
+On large sites, we recommend avoiding attaching styles directly to the <h1> - <h6> elements directly, and instead define appropriate styles for classes named text-heading1, text-heading2 etc.
+This approach also allows Developers to quickly cycle through the available heading styles to find the one that matches the design.
+*/
+
+.text-heading1 {
+	font-size: 30px;
+	font-weight:bold;
+}
+
+.text-heading1 small {
+	font-size: 18px;
+	font-weight:normal;
+}
+
+.text-heading2 {
+	font-size: 24px;
+	font-weight:bold;
+}
+
+.text-heading2 small {
+	font-size: 18px;
+	font-weight:normal;
+}
+
+.text-heading3 {
+	font-size: 18px;
+	font-weight:bold;
+}
+
+.text-heading3 small {
+	font-size: 14px;
+	font-weight:normal;
+}
+
+p { margin:10px 0; }
+
+/* Override these with site-specific hex colors */
+.text-positive,
+.text-pos { color:Green; }
+.text-negative,
+.text-neg { color:Red; }
+.text-neutral { color:Gray;	}
+.text-minor { font-size:90%; }
+.text-prominent { font-size:120%; }
+.text-muted { color: #999; }
+.text-error { color: red; }
+
+.text-bold { font-weight:bold; }
+.text-italic { font-style:italic; }
+.text-left { text-align:left; }
+.text-center { text-align:center; }
+.text-right { text-align:right; }
+.text-nowrap { white-space:nowrap; }
+.text-uppercase { text-transform:uppercase; }
+.text-lowercase { text-transform:lowercase; }
+
+/*
+SPACING: Overall page style plans should accommodate nearly all spacing scenarios, but for fine tuning or one-offs, the classes below can be useful.
+Most sites have three variations of shim spacing. Work with your Designer to determine what they should be.
+Margins are preferable due to collapsing vertical margins. Remember: Collapsing margins between adjacent elements are interrupted by the presence of borders or padding.
+*/
+
+.shim-sm { margin:5px !important; }
+.shim-top-sm { margin-top:5px !important; }
+.shim-right-sm { margin-right:5px !important; }
+.shim-bottom-sm { margin-bottom:5px !important; }
+.shim-left-sm { margin-left:5px !important; }
+.shim-top-bottom-sm { margin-bottom:5px !important; margin-top:5px !important; }
+.shim-left-right-sm { margin-left:5px !important; margin-right:5px !important; }
+
+.shim-md { margin:10px !important; }
+.shim-top-md { margin-top:10px !important; }
+.shim-right-md { margin-right:10px !important; }
+.shim-bottom-md { margin-bottom:10px !important; }
+.shim-left-md { margin-left:10px !important; }
+.shim-top-bottom-md { margin-bottom:10px !important; margin-top:10px !important; }
+.shim-left-right-md { margin-left:10px !important; margin-right:10px !important; }
+
+.shim-lg { margin:20px !important; }
+.shim-top-lg { margin-top:20px !important; }
+.shim-right-lg { margin-right:20px !important; }
+.shim-bottom-lg { margin-bottom:20px !important; }
+.shim-left-lg { margin-left:20px !important; }
+.shim-top-bottom-lg { margin-bottom:20px !important; margin-top:20px !important; }
+.shim-left-right-lg { margin-left:20px !important; margin-right:20px !important; }
+
+.flush { margin:0 !important; }
+.flush-top { margin-top:0 !important; }
+.flush-right { margin-right:0 !important; }
+.flush-bottom { margin-bottom:0 !important; }
+.flush-left { margin-left:0 !important; }
+.flush-top-bottom { margin-bottom:0 !important; margin-top:0 !important; }
+.flush-left-right { margin-left:0 !important; margin-right:0 !important; }
+
+/* Miscellaneous */
+
+.todo {
+	outline:1px dotted red;
+}
+
+/* Accessibility */
+
+.offscreen,
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+/* From Boostrap */
+
+.clearfix {	*zoom: 1; }
+
+.clearfix:before,
+.clearfix:after {
+	display: table;
+	line-height: 0;
+	content: "";
+}
+
+.clearfix:after { clear: both; }
+
+.center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+.img-responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.pull-right { float: right; }
+.pull-left { float: left; }
+.hide { display: none; }
+.show { display: block; }
+.invisible { visibility: hidden; }
+.affix { position: fixed; }

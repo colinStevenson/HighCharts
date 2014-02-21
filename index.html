@@ -5,45 +5,70 @@
     <meta charset="utf-8" />
     <title>HighCharts Demo</title>
 	<link rel="stylesheet" href="Content/Styles/bootstrap.css" />
+	<link rel="stylesheet" href="Content/Styles/ResearchCommon.css" />
 	<link rel="stylesheet" href="Content/Styles/Site.css" />
 </head>
 <body>
-	<header>
-		<h1>HighCharts</h1>
-		<div id="container" style="height: 500px; min-width: 500px"></div>
-	</header>
+	<!--<section>
+		<table class="table">
+			<caption>My Watchlist</caption>
+			<thead>
+				<tr>
+					<th>Symbol</th>
+					<th>Chart</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>AAPL</td>
+					<td>
+						<div class="chart spark-chart" data-symbol="AAPL"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>PG</td>
+					<td>
+						<div class="chart spark-chart" data-symbol="PG"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>USB</td>
+					<td>
+						<div class="chart spark-chart" data-symbol="USB"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>FB</td>
+					<td>
+						<div class="chart spark-chart" data-symbol="FB"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>ACTC</td>
+					<td>
+						<div class="chart spark-chart" data-symbol="ACTC"></div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+	<section>
+		<h2>Spending Gague Chart</h2>
+		<div class="chart spending-gague-chart"></div>
+	</section>-->
+	<section>
+		<h2>Accounts Bar Chart</h2>
+		<div class="chart accounts-bar-chart"></div>
+	</section>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="Content/Scripts/highstock.js"></script>
-	<script src="Content/Scripts/modules/exporting.js"></script>
+	<script src="Content/Scripts//highcharts-more.js"></script>
+	<script src="Content/Scripts/modules/data.js"></script>
+	<script src="Content/Scripts/modules/drilldown.js"></script>
 	<script src="Content/Scripts/themes/ms-brand.js"></script>
-	<script type="text/javascript">
-		$(function () {
-
-			$.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {
-				// Create the chart
-				$('#container').highcharts('StockChart', {
-
-
-					rangeSelector: {
-						selected: 1
-					},
-
-					title: {
-						text: 'AAPL'
-					},
-
-					series: [{
-						name: 'AAPL',
-						data: data,
-						tooltip: {
-							valueDecimals: 2
-						}
-					}]
-				});
-			});
-
-		});
-
-		</script>
+	<script src="Content/Scripts/Charts/Chart.js"></script>
+	<script src="Content/Scripts/Charts/SparkChart.js"></script>
+	<script src="Content/Scripts/Charts/SpendingGagueChart.js"></script>
+	<script src="Content/Scripts/Charts/AccountsBarChart.js"></script>
 </body>
 </html>
