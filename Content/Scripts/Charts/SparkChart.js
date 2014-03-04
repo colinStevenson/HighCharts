@@ -75,27 +75,6 @@ SparkChart.prototype._render = function (oData) {
 	// create the chart
 	this._container.highcharts(this._getChartParams(ohlc));
 };
-SparkChart.prototype._getOHLC = function (oData) {
-	var dates = oData.Dates || [];
-	var elements = oData.Elements || [];
-	var chartSeries = [];
-
-	if (elements[0]) {
-
-		for (var i = 0, datLen = dates.length; i < datLen; i++) {
-			var dat = this._fixDate(dates[i]);
-			var pointData = [
-                dat,
-                //elements[0].DataSeries['open'].values[i],
-                //elements[0].DataSeries['high'].values[i],
-                //elements[0].DataSeries['low'].values[i],
-                elements[0].DataSeries['close'].values[i]
-			];
-			chartSeries.push(pointData);
-		};
-	}
-	return chartSeries;
-};
 
 SparkChart.prototype._getChartParams = function (oSeriesData) {
 	var nOpen = oSeriesData[0][1]; // not actually open value, just for testing

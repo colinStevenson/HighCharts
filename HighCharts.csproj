@@ -65,6 +65,11 @@
     <Content Include="Content\Scripts\adapters\standalone-framework.js" />
     <Content Include="Content\Scripts\adapters\standalone-framework.src.js" />
     <Content Include="Content\Scripts\bootstrap.min.js" />
+    <Content Include="Content\Scripts\Charts\AccountsBarChart.js" />
+    <Content Include="Content\Scripts\Charts\BasicPriceChart.js" />
+    <Content Include="Content\Scripts\Charts\Chart.js" />
+    <Content Include="Content\Scripts\Charts\PieChart.js" />
+    <Content Include="Content\Scripts\Charts\SpendingGagueChart.js" />
     <Content Include="Content\Scripts\highcharts-more.js" />
     <Content Include="Content\Scripts\highcharts-more.src.js" />
     <Content Include="Content\Scripts\highstock.js" />
@@ -87,6 +92,7 @@
     <Content Include="Content\Scripts\modules\map.src.js" />
     <Content Include="Content\Scripts\modules\no-data-to-display.js" />
     <Content Include="Content\Scripts\modules\no-data-to-display.src.js" />
+    <Content Include="Content\Scripts\Charts\SparkChart.js" />
     <Content Include="Content\Scripts\themes\dark-blue.js" />
     <Content Include="Content\Scripts\themes\dark-green.js" />
     <Content Include="Content\Scripts\themes\gray.js" />
@@ -94,6 +100,7 @@
     <Content Include="Content\Scripts\themes\ms-brand.js" />
     <Content Include="Content\Scripts\themes\skies.js" />
     <Content Include="Content\Styles\bootstrap.css" />
+    <Content Include="Content\Styles\ResearchCommon.css" />
     <Content Include="Content\Styles\Site.css" />
     <Content Include="Demo\examples\arearange\index.htm" />
     <Content Include="Demo\examples\areasplinerange\index.htm" />

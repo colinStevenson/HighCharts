@@ -9,3 +9,69 @@
 	width:200px;
 	height:100px;
 }
+/*accounts-bar-chart*/
+.accounts-bar-chart .data-label{
+	background:#fff;
+	border:1px solid;
+	border-radius:4px;
+	display:inline-block;
+	padding:4px;
+	text-align:center;
+	width:30px;
+}
+.accounts-bar-chart .deposits{
+	border-color:green;
+	color:green;
+	margin-right:8px;
+}
+.accounts-bar-chart .withdrawls{
+	border-color:red;
+	color:red;
+}
+.highcharts-data-labels,
+.highcharts-data-labels > div,
+.highcharts-data-labels > div > span
+{
+	z-index:0 !important;
+}
+/*Tooltip*/
+.highcharts-tooltip{
+	background:transparent;
+}
+.highcharts-tooltip > span{
+	background:#fff;
+	border:1px solid #666;
+	border-radius:3px;
+	display:block;
+	padding:8px;
+	z-index:1;
+}
+.highcharts-tooltip .tooltip-point{
+	bottom:-12px;
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-top: 12px solid #666;
+	position:absolute;
+}
+.highcharts-tooltip .tooltip-point:after{
+	bottom:0;
+	content:"";
+	left:-7px;
+	top:-3px;
+	width: 0;
+	height: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-top: 10px solid #fff;
+	position:relative;
+}
+.highcharts-tooltip .tooltip-point-left{
+	left:8px;
+}
+.highcharts-tooltip .tooltip-point-right{
+	right:8px;
+}
+
+
