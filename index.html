@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="Content/Styles/Site.css" />
 </head>
 <body>
-	<section>
+	<!--<section>
 		<table class="table">
 			<caption>My Watchlist</caption>
 			<thead>
@@ -67,6 +67,63 @@
 	<section>
 		<h2>Basic Price (KO)</h2>
 		<div class="chart basic-price-chart" data-symbol="FB"></div>
+	</section>-->
+	<section>
+		<h2>Table Bar</h2>
+		<div class="chart-container">
+			<div class="chart table-bar-chart" data-symbol="FB"></div>
+			<table class="table" id="table-bar-chart-data">
+				<thead>
+					<tr>
+						<th></th>
+						<th class="text-right">Aug 2013</th>
+						<th class="text-right">Sep 2013</th>
+						<th class="text-right">Oct 2013</th>
+						<th class="text-right">Nov 2013</th>
+						<th class="text-right">Dec 2013</th>
+						<th class="text-right">Jan 2014</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Equities</th>
+						<td class="text-right" data-value="2000">2,000.00</td>
+						<td class="text-right" data-value="1000">1,000.00</td>
+						<td class="text-right" data-value="2000">2,000.00</td>
+						<td class="text-right" data-value="3000">3,000.00</td>
+						<td class="text-right" data-value="3000">3,000.00</td>
+						<td class="text-right" data-value="3000">3,000.00</td>
+					</tr>
+					<tr>
+						<th>Fixed Income</th>
+						<td class="text-right" data-value="2000">2,000.00</td>
+						<td class="text-right" data-value="1000">1,000.00</td>
+						<td class="text-right" data-value="2000">2,000.00</td>
+						<td class="text-right" data-value="3000">3,000.00</td>
+						<td class="text-right" data-value="3000">3,000.00</td>
+						<td class="text-right" data-value="3000">3,000.00</td>
+					</tr>
+					<tr>
+						<th>Cash &amp; Equivalents</th>
+						<td class="text-right" data-value="2000">2,000.00</td>
+						<td class="text-right" data-value="1000">1,000.00</td>
+						<td class="text-right" data-value="2000">2,000.00</td>
+						<td class="text-right" data-value="3000">3,000.00</td>
+						<td class="text-right" data-value="3000">3,000.00</td>
+						<td class="text-right" data-value="3000">3,000.00</td>
+					</tr>
+					<tr>
+						<th>Alternatives</th>
+						<td class="text-right" data-value="2000">2,000.00</td>
+						<td class="text-right" data-value="1000">1,000.00</td>
+						<td class="text-right" data-value="2000">2,000.00</td>
+						<td class="text-right" data-value="3000">3,000.00</td>
+						<td class="text-right" data-value="3000">3,000.00</td>
+						<td class="text-right" data-value="3000">3,000.00</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</section>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="Content/Scripts/highstock.js"></script>
@@ -80,5 +137,6 @@
 	<script src="Content/Scripts/Charts/AccountsBarChart.js"></script>
 	<script src="Content/Scripts/Charts/PieChart.js"></script>
 	<script src="Content/Scripts/Charts/BasicPriceChart.js"></script>
+	<script src="Content/Scripts/Charts/TableBarChart.js"></script>
 </body>
 </html>

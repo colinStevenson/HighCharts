@@ -73,5 +73,8 @@
 .highcharts-tooltip .tooltip-point-right{
 	right:8px;
 }
-
-
+/*table bar chart*/
+#table-bar-chart-data thead th:last-of-type,
+#table-bar-chart-data tbody td:last-of-type{
+	padding-right:80px;
+}
