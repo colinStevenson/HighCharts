@@ -70,6 +70,7 @@
     <Content Include="Content\Scripts\Charts\Chart.js" />
     <Content Include="Content\Scripts\Charts\PieChart.js" />
     <Content Include="Content\Scripts\Charts\SpendingGagueChart.js" />
+    <Content Include="Content\Scripts\Charts\TableBarChart.js" />
     <Content Include="Content\Scripts\highcharts-more.js" />
     <Content Include="Content\Scripts\highcharts-more.src.js" />
     <Content Include="Content\Scripts\highstock.js" />

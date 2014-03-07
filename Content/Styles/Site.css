@@ -78,3 +78,6 @@
 #table-bar-chart-data tbody td:last-of-type{
 	padding-right:80px;
 }
+#table-bar-chart-data tbody th{
+	width:200px;
+}

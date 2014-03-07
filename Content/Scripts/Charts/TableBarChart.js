@@ -16,7 +16,8 @@ TableBarChart.prototype.Init = function (jContainer) {
 };
 //Internal
 TableBarChart.prototype._render = function () {
-	this._container.highcharts(this._getChartParams());
+	this._chart = window.tableBarChart = new Highcharts.Chart(this._getChartParams());
+	this._shiftAxis();
 };
 TableBarChart.prototype.COLORS = ["#a7a9ac", "#69badc", "#189bd7", "#115e92"];
 TableBarChart.prototype._getSeries = function () {
@@ -44,14 +45,14 @@ TableBarChart.prototype._getDataFromRowCells = function(jCells){
 			Number($(this).data("value"))
 		);
 	});
-	console.log(rData);
 	return rData;
 };
 TableBarChart.prototype._getChartParams = function () {
 	return {
 		chart: {
 			type: 'column',
-			plotBorderWidth: 0
+			plotBorderWidth: 0,
+			renderTo: this._container[0]
 		},
 		credits: {
 			enabled: false
@@ -62,7 +63,7 @@ TableBarChart.prototype._getChartParams = function () {
 		plotOptions: {
 			column: {
 				stacking: 'normal',
-				pointWidth: 85
+				pointWidth: this._getBarWidth()
 			}
 		},
 		series: this._getSeries(),
@@ -71,7 +72,10 @@ TableBarChart.prototype._getChartParams = function () {
 			labels: {
 				enabled:false
 			},
-			tickWidth:0
+			min: 0,
+			max: 5,
+			tickWidth: 0,
+			type: "category"
 		},
 		yAxis: {
 			opposite: true,
@@ -91,6 +95,42 @@ TableBarChart.prototype._getChartParams = function () {
 			showLastLabel: false
 		}
 	};
+};
+//Get Narrowest table column width 
+TableBarChart.prototype._getBarWidth = function () {
+	var nMin = 200;
+	var nPadding = 16;
+	$("#table-bar-chart-data th.text-right").each(function () {
+		nMin = Math.min(nMin, $(this).width());
+	});
+	this._barWidth = nMin - nPadding;
+	console.log(this._barWidth);
+	return this._barWidth;
+};
+TableBarChart.prototype._getColXPositions = function () {
+	var rPositions = [];
+	var oContext = this;
+	$("#table-bar-chart-data th.text-right").each(function () {
+		var jCell = $(this);
+		var nX = jCell.position().left + jCell.width() - oContext._barWidth + (oContext._barWidth/ 2);
+		rPositions.push(oContext._chart.series[0].xAxis.translate(nX, true));
+	});
+	console.log(rPositions);
+	return rPositions;
+};
+TableBarChart.prototype._shiftAxis = function () {
+	var rXPositions = this._getColXPositions();
+	var rSerieses = [];
+	for (var i = 0; i < this._chart.series.length; i++) {
+		var rNewSeries = [];
+		var oSeries = this._chart.series[i];
+		for (var j = 0; j < oSeries.points.length; j++) {
+			var oPoint = oSeries.points[j];
+			var nXVal = rXPositions[j];
+			oPoint.update({x:nXVal})
+			//oPoint.destroy();
+		}
+	}
 };
 //Global Instantiation
 $(function () {
