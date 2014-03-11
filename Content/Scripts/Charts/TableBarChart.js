@@ -12,6 +12,7 @@ TableBarChart.Init = function () {
 //Public
 TableBarChart.prototype.Init = function (jContainer) {
 	this._container = jContainer;
+	$(window).on("resize", $.proxy(this._handleResize,this));
 	this._render();
 };
 //Internal
@@ -24,9 +25,6 @@ TableBarChart.prototype._getSeries = function () {
 	var rSeries = [];
 
 	var jtable = $("#table-bar-chart-data");
-
-	//var rColLabels = [];
-	//$("thead th", jtable).each(function () { rColLabels.push($(this).html()); });
 
 	var jDataRows = $("tbody tr", jtable);
 	for (var i = 0; i < jDataRows.length; i++) {
@@ -50,8 +48,12 @@ TableBarChart.prototype._getDataFromRowCells = function(jCells){
 TableBarChart.prototype._getChartParams = function () {
 	return {
 		chart: {
+			events: {
+				redraw: $.proxy(this._handleChartUpdate, this)
+			},
 			type: 'column',
 			plotBorderWidth: 0,
+			reflow:false,
 			renderTo: this._container[0]
 		},
 		credits: {
@@ -63,11 +65,17 @@ TableBarChart.prototype._getChartParams = function () {
 		plotOptions: {
 			column: {
 				stacking: 'normal',
-				pointWidth: this._getBarWidth()
+				pointWidth: this._getBarWidth(),
+				tooltip: {
+
+				}
 			}
 		},
 		series: this._getSeries(),
 		title: '',
+		tooltip:{
+			enabled:false
+		},
 		xAxis: {
 			labels: {
 				enabled:false
@@ -104,7 +112,6 @@ TableBarChart.prototype._getBarWidth = function () {
 		nMin = Math.min(nMin, $(this).width());
 	});
 	this._barWidth = nMin - nPadding;
-	console.log(this._barWidth);
 	return this._barWidth;
 };
 TableBarChart.prototype._getColXPositions = function () {
@@ -115,7 +122,6 @@ TableBarChart.prototype._getColXPositions = function () {
 		var nX = jCell.position().left + jCell.width() - oContext._barWidth + (oContext._barWidth/ 2);
 		rPositions.push(oContext._chart.series[0].xAxis.translate(nX, true));
 	});
-	console.log(rPositions);
 	return rPositions;
 };
 TableBarChart.prototype._shiftAxis = function () {
@@ -127,11 +133,26 @@ TableBarChart.prototype._shiftAxis = function () {
 		for (var j = 0; j < oSeries.points.length; j++) {
 			var oPoint = oSeries.points[j];
 			var nXVal = rXPositions[j];
-			oPoint.update({x:nXVal})
-			//oPoint.destroy();
+			oPoint.update({x:nXVal}, false)
 		}
 	}
+	this._chart.redraw();
 };
+TableBarChart.prototype._handleChartUpdate = function (oEvent) {
+	
+};
+TableBarChart.prototype._handleResize = function () {
+	if (this._resizeTimeout) {
+		window.clearTimeout(this._resizeTimeout);
+	}
+	this._resizeTimeout = window.setTimeout($.proxy(this._resizeTimeoutHandler, this), 100);
+};
+TableBarChart.prototype._resizeTimeoutHandler = function () {
+	if (this._chart) {
+		this._chart.destroy();
+	}
+	this._render();
+}
 //Global Instantiation
 $(function () {
 	TableBarChart.Init();
